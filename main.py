@@ -111,7 +111,7 @@ for line in sentences:
         half2 += ' '
     senti_half1 = SentimentIntensityAnalyzer().polarity_scores(half1)
     senti_half2 = SentimentIntensityAnalyzer().polarity_scores(half2)
-    if senti_half1['compound'] > senti_half2['compound'] and senti_half2['compound'] != 0:
+    if senti_half1['compound'] > senti_half2['compound'] and senti_half2['compound'] < 0:
         tokens = word_tokenize(half1)
         for token in tokens:
             if SentimentIntensityAnalyzer().polarity_scores(token)['pos'] == 1:
